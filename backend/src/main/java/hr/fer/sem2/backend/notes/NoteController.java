@@ -14,8 +14,19 @@ public class NoteController {
   private NoteRepository noteRepository;
 
   @GetMapping(value = "/notes")
-  public Iterable<Note> getAllNotes() {
-    return noteRepository.findAll();
+  public Iterable<NotePreview> getAllNotes() {
+    return noteRepository.findAllBy();
+  }
+
+  @GetMapping(value = "/notes/{id}")
+  public ResponseEntity<Note> getNote(@PathVariable(value = "id") Long noteId) {
+    Optional<Note> note = noteRepository.findById(noteId);
+
+    if (note.isEmpty()) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    return new ResponseEntity<>(note.get(), HttpStatus.OK);
   }
 
   @PostMapping(value = "/notes")
