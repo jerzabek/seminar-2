@@ -2,7 +2,7 @@
 
 ## Directory structure
 
- - 🌐 `frontend` - React.js frontend application
+ - 🌐 `frontend` - Next.js frontend application
  - 💻 `backend` - Java Spring boot backend application
 
 ## Installation and running
