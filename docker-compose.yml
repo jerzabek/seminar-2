@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+
+  sem2-db:
+    image: postgres
+    container_name: sem2-db
+    restart: always
+    environment:
+      POSTGRES_DB: sem2
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5550:5432"
+    volumes:
+      - sem2-db-data:/var/lib/postgresql/data
+
+  sem2-backend:
+    image: sem2-backend
+    container_name: sem2-backend
+    depends_on:
+      - sem2-db
+    ports:
+      - "5555:8080"
+  # sem2-frontend:
+  #   image: sem2-frontend
+  #   container_name: sem2-frontend
+  #   depends_on:
+  #     - sem2-backend
+  #   ports:
+  #     - "5555:8080"
+
+volumes:
+  sem2-db-data:
