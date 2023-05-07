@@ -9,16 +9,15 @@
 
 ### Build
 
-Building the backend:
+Both backend and frontend services are containerized using Docker. To build all necessary images run:
 
 ```shell
-$ chmod u+x backend/build.sh
-$ ./backend/build.sh
+$ docker compose build
 ```
 
 ### Run
 
-Running the entire application cluster:
+Running the application:
 
 ```shell
 $ docker compose up

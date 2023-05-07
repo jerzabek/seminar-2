@@ -15,7 +15,10 @@ services:
       - sem2-db-data:/var/lib/postgresql/data
 
   sem2-backend:
-    image: sem2-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: sem2-backend:1.0.0
     container_name: sem2-backend
     depends_on:
       - sem2-db
@@ -23,7 +26,10 @@ services:
       - "5555:8080"
 
   sem2-frontend:
-    image: sem2-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: sem2-frontend:1.0.0
     container_name: sem2-frontend
     depends_on:
       - sem2-backend
