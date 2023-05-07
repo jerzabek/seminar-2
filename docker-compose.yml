@@ -21,13 +21,14 @@ services:
       - sem2-db
     ports:
       - "5555:8080"
-  # sem2-frontend:
-  #   image: sem2-frontend
-  #   container_name: sem2-frontend
-  #   depends_on:
-  #     - sem2-backend
-  #   ports:
-  #     - "5555:8080"
+
+  sem2-frontend:
+    image: sem2-frontend
+    container_name: sem2-frontend
+    depends_on:
+      - sem2-backend
+    ports:
+      - "5560:3000"
 
 volumes:
   sem2-db-data:
