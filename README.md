@@ -23,6 +23,7 @@ Running the application:
 $ docker compose up
 ```
 
+Once started the application will be available at the URL `http://localhost:5560`.
 
 ## Development
 
